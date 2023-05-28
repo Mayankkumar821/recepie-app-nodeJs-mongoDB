@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+.data
+{
+    height:500px;
+    width:500px;
+    background-color: aquamarine;
+    position: absolute;
+    top:20%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    left:35%;
+}
+
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px 1px #000, 
+               3px 3px 5px rgb(188, 188, 194); 
+               position: relative;
+               left:31%;
+
+}
+
+label
+{ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    color:red;
+    font-weight: 700;
+}
+
+.disp
+{
+    height:60px;
+    width:80%;
+    background-color: aqua;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top:20px;
+    position: relative;
+    top:50px;
+    left:40px;
+    display: flex;
+    align-items: center;
+}
+label{
+    margin-right:10px;
+}
+button{
+    position: relative;
+    top:100px;
+    left:45%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height:40px;
+    width:80px;
+    border: none;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
+    </style>
+</head>
+
+<body>
+   <div class="data"> <h1>Edit Recipe</h1>
+    <form action="/<%= recipe._id %>/edit" method="post">
+        <div class="disp">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="<%= recipe.name %>">
+        </div>
+        <div class="disp">
+            <label for="description">Description</label>
+            <textarea id="description" name="description"><%= recipe.description %></textarea>
+        </div>
+        <div class="disp">
+            <label for="ingredients">Ingredients</label>
+            <textarea id="ingredients" name="ingredients"><%= recipe.ingredients %></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form></div>
+</body>
+
+</html>

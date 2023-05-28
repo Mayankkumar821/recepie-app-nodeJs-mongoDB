@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"> 
+<style>
+
+.data
+{  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height:600px;
+    width:770px;
+    background-color: aquamarine;
+    position: absolute;
+    top:10%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    left:25%;
+    overflow-y: scroll;
+  
+}
+h1{
+  
+    text-shadow: 1px 1px 1px #000, 
+               3px 3px 5px rgb(188, 188, 194); 
+               position: relative;
+               left:40%;
+               font-size: 40px;
+               margin-bottom: 35px;
+
+}
+.recepieli
+{
+    height:auto;
+    width:85%;
+    background-color: aqua;
+    margin-top:20px;
+    border-radius: 50px;
+    padding:25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+p{
+    color:red;
+    font-size: 20px;
+    font-weight: 600;
+}
+.realdata
+{
+    height:auto;
+    width:80%;
+    background-color: antiquewhite;
+    padding:10px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top:10px;
+
+}
+
+button{
+    position: relative;
+    top:10px;
+    left:55%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height:40px;
+    width:80px;
+    border: none;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+.btns
+{
+    height:auto;
+    width:auto;
+    display: flex;
+    flex-direction: row;
+}
+    
+.heading
+{
+    display: flex;
+flex-direction: row;
+
+height:80px;
+width:90%;
+}
+a{
+    position:relative;
+    left:50%;
+    top:30px;
+    font-size: 30px;
+    color:red;
+    font-weight: 700;
+}
+</style>
+</head>
+<body>
+   <div class="data">  <div class="heading"><h1>Recipes</h1>   <a href="/new">+Add Recipes</a></div>
+    <ul>
+        <% recipes.forEach((recipe)=> { %>
+        <div class="recepieli" >   <li>
+            <div class="realdata"> <p>Name</p>    <%= recipe.name %></div> <div class="realdata"> <p>Description</p> <%= recipe.description %> </div>  <div class="realdata"> <p>Ingredients</p>  <%= recipe.ingredients %> </div>
+            <form action="/<%= recipe._id %>/delete" method="post">
+        <div class="btns">     <button type="submit">Delete</button>    </form>
+            <form action="/<%= recipe._id %>/edit" method="get">
+              <button type="submit">Edit</button>   </div> 
+             </form> </li></div> <% }); %>
+         
+        </ul></div>
+        </body></html>
+
+
+
+
+
+
+        
